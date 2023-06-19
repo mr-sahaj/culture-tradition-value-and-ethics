@@ -1,235 +1,257 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Temple Management</title>
+  <title>Temple Maintenance Website</title>
   <style>
+    /* Basic styling for the website */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
+      padding: 0;
+    }
+
+    header, nav, section, footer {
       padding: 20px;
     }
-    
+
     header {
       background-color: #333;
-      padding: 10px;
       color: #fff;
-    }
-    
-    h1 {
-      margin: 0;
-    }
-    
-    nav {
-      margin-top: 20px;
-      background-color: #f2f2f2;
-      padding: 10px;
-    }
-    
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    nav li {
-      display: inline;
-      margin-right: 10px;
-    }
-    
-    nav a {
-      text-decoration: none;
-      color: #333;
-      padding: 5px;
-      border-bottom: 2px solid transparent;
-    }
-    
-    nav a:hover {
-      border-bottom: 2px solid #333;
-    }
-    
-    main {
-      margin-top: 20px;
-    }
-    
-    .section {
-      margin-bottom: 40px;
-    }
-    
-    h2 {
-      color: #333;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    
-    p {
-      color: #666;
-      font-size: 16px;
-    }
-    
-    .donation-box {
-      background-color: #f2f2f2;
-      padding: 20px;
       text-align: center;
     }
-    
-    .donation-box h3 {
+
+    nav ul {
+      list-style-type: none;
+      
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #f2f2f2;
+    }
+
+    nav ul li {
+      display: inline-block;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #333;
+      transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #ddd;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
       color: #333;
       font-size: 24px;
+      font-weight: bold;
       margin-bottom: 10px;
     }
-    
-    .donation-box p {
+
+    p {
       color: #666;
-      font-size: 16px;
-      margin-bottom: 10px;
+      line-height: 1.5;
     }
-    
-    .donation-box input[type="text"],
-    .donation-box input[type="email"],
-    .donation-box input[type="number"] {
-      padding: 5px;
-      margin-bottom: 10px;
-      width: 100%;
-    }
-    
-    .donation-box input[type="submit"] {
+
+    footer {
       background-color: #333;
       color: #fff;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 16px;
+      text-align: center;
     }
-    
+
     .watermark {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 500px;
-      color: rgba(0, 0, 0, 0.1);
-      pointer-events: none;
-      z-index: -1; /* Move the watermark to the backside */
+      font-size: 200px;
+      opacity: 0.3;
+      z-index: -1;
+      font-family: "Arial Black", Gadget, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 20px;
     }
 
-    /* Custom Styles */
-    h2 {
-      font-family: Arial, sans-serif;
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
       font-weight: bold;
-      color: #333;
-      font-size: 32px;
-      margin-bottom: 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #555;
+    }
+
+    /* Additional styles for text */
+    h1 {
+      font-size: 36px;
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
     }
 
     p {
-      font-family: Arial, sans-serif;
-      font-size: 18px;
-      color: #666;
+      font-size: 16px;
+      margin-bottom: 15px;
     }
 
-    .temple-list {
-      list-style-type: disc;
+    ul {
       margin-left: 20px;
-      font-size: 18px;
-      color: #666;
     }
 
-    .temple-list a {
-      text-decoration: none;
-      color: #666;
+    footer p {
+      font-size: 14px;
+      margin: 0;
     }
 
-    .temple-list a:hover {
-      color: #333;
-    }
-
-    .section-heading {
-      font-size: 36px;
+    /* Text styles for specific sections */
+    #home h2 {
       font-weight: bold;
       color: #333;
+    }
+
+    #about p {
+      font-style: italic;
+    }
+
+    #donations p,
+    #donations form {
+      text-align: center;
+    }
+
+    /* Text styles for buttons */
+    .button {
+      font-size: 16px;
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Temple Management</h1>
+    <h1>Welcome to our Temple Maintenance Website</h1>
   </header>
-  
+
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="event.html">Events</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#home" class="button">Home</a></li>
+      <li><a href="#about" class="button">About Us</a></li>
+      <li><a href="#directory" class="button">Temple Directory</a></li>
+      <li><a href="#pooja" class="button">Pooja and Rituals</a></li>
+      <li><a href="#events" class="button">Festivals and Events</a></li>
+      <li><a href="#donations" class="button">Donations</a></li>
+      <li><a href="#volunteer" class="button">Volunteer</a></li>
+      <li><a href="#contact" class="button">Contact</a></li>
     </ul>
   </nav>
-  
-  <main>
-    <section class="section">
-      <h2 class="section-heading">Welcome to our Temple</h2>
-      <p>Explore the divine experience at our sacred temple.</p>
-      <p>Discover the serenity and spirituality of some of the renowned Indian temples:</p>
-      <ul class="temple-list">
-        <li><a href="https://en.wikipedia.org/wiki/Tirupati_Temple" target="_blank">Tirupati Temple</a></li>
-        <li><a href="https://en.wikipedia.org/wiki/Kashi_Vishwanath_Temple" target="_blank">Kashi Vishwanath Temple</a></li>
-        <li><a href="https://en.wikipedia.org/wiki/Golden_Temple,_Amritsar" target="_blank">Golden Temple, Amritsar</a></li>
-        <li><a href="https://en.wikipedia.org/wiki/Meenakshi_Amman_Temple" target="_blank">Meenakshi Amman Temple</a></li>
-        <li><a href="https://en.wikipedia.org/wiki/Siddhivinayak_Temple,_Mumbai" target="_blank">Siddhivinayak Temple, Mumbai</a></li>
-      </ul>
-    </section>
-    
-    <section class="section about">
-      <h2>About Us</h2>
-      <p>Indian temples have a rich cultural and spiritual heritage. At Temple Management, we strive to preserve and promote this heritage by providing a nurturing and devotional environment for devotees. Our temple is dedicated to the worship of various deities, and we offer regular rituals, prayers, and spiritual discourses to foster spiritual growth and enlightenment.</p>
-    </section>
-    
-    <section class="section services">
-      <h2>Services</h2>
-      <p>Our temple provides a range of services to cater to the spiritual needs of devotees. Some of our key services include:</p>
-      <ul>
-        <li>Regular religious ceremonies and rituals</li>
-        <li>Special pujas and homams for specific occasions</li>
-        <li>Guided meditation and yoga sessions</li>
-        <li>Scripture study and spiritual discourses</li>
-        <li>Community service and charitable activities</li>
-      </ul>
-      <p>By availing these services, devotees can deepen their spiritual connection, seek divine blessings, and find solace in the divine presence.</p>
-    </section>
-    
-    <section class="section events">
-      <h2>Events</h2>
-      <p>Our temple organizes various events throughout the year to celebrate festivals, promote cultural exchange, and provide a platform for spiritual growth. Some of our upcoming events include:</p>
-      <ul>
-        <li>Annual Navaratri festival with traditional music, dance, and religious ceremonies</li>
-        <li>Guru Purnima celebration with spiritual discourses by eminent scholars</li>
-        <li>Diwali Mela showcasing Indian arts, crafts, and cuisine</li>
-        <li>Maha Shivaratri night vigil with devotional songs and chanting</li>
-        <li>Holi festival of colors with community participation and joyous celebrations</li>
-      </ul>
-      <p>These events bring the community together, foster a sense of unity, and create opportunities for cultural exchange and spiritual upliftment.</p>
-    </section>
-    
-    <section class="section">
-      <div class="donation-box">
-        <h3>Make a Donation</h3>
-        <p>Your contribution helps support the activities of the temple.</p>
-        <form>
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <input type="number" name="amount" placeholder="Donation Amount" required>
-          <input type="submit" value="Donate Now">
-        </form>
-      </div>
-    </section>
-  </main>
-  
-  <div class="watermark">
-    <p>ॐ</p>
-  </div>
-  
+
+  <section id="home">
+    <h2>About Chamundi Temple, Gangapatnam</h2>
+    <p>The Chamundi Temple in Gangapatnam is a sacred Hindu temple dedicated to Goddess Chamundi, an incarnation of Goddess Durga.</p>
+    <p>Located in the picturesque town of Gangapatnam, this temple attracts devotees from far and wide.</p>
+    <p>Legend has it that the temple was built several centuries ago by a local king to honor Goddess Chamundi and seek her blessings for the welfare of the kingdom. The temple architecture showcases exquisite carvings and intricate details, reflecting the rich cultural heritage of the region.</p>
+    <p>Devotees visit the Chamundi Temple to seek the blessings of Goddess Chamundi for various reasons, including good health, prosperity, and success in endeavors. The temple also serves as a center for spiritual activities, offering regular poojas, rituals, and spiritual discourses.</p>
+    <img src="chamundi-temple.jpg" alt="Chamundi Temple" width="400" height="300">
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>This section provides information about our organization and its mission in preserving Indian temples.</p>
+    <p>At Temple Maintenance Website, we are dedicated to the preservation and maintenance of Indian temples. Our aim is to ensure that these sacred places of worship continue to thrive and provide a spiritual sanctuary for devotees.</p>
+    <p>Through our efforts, we strive to raise awareness about the importance of temple maintenance, restoration, and cultural preservation. We work closely with temple authorities, local communities, and volunteers to carry out various initiatives and projects.</p>
+    <p>Our organization also aims to promote the rich cultural heritage and spiritual significance of Indian temples to a global audience. We believe that these temples are not just places of worship but also repositories of art, history, and traditional practices.</p>
+  </section>
+
+  <section id="directory">
+    <h2>Temple Directory</h2>
+    <p>Here you can find a list of Indian temples categorized by region, state, or deity. Click on a temple to view its details.</p>
+    <p>Explore our extensive directory of temples to discover the divine abodes spread across the length and breadth of India. From ancient temples nestled in remote villages to grand architectural marvels in bustling cities, our directory provides a comprehensive overview of the rich diversity of Indian temples.</p>
+    <p>Whether you are planning a pilgrimage or simply interested in exploring the cultural and spiritual heritage of India, our temple directory is your gateway to a world of devotion, history, and beauty.</p>
+  </section>
+
+  <section id="pooja">
+    <h2>Pooja and Rituals</h2>
+    <p>The Chamundi Temple offers a range of poojas and rituals performed from morning to night, including:</p>
+    <ul>
+      <li>Suprabhatha Seva - Morning prayer to awaken the deity</li>
+      <li>Ganapathi Homam - Homam dedicated to Lord Ganesha</li>
+      <li>Abhishekam - Ritual bath of the deity</li>
+      <li>Alankaram - Decoration of the deity with flowers and ornaments</li>
+      <li>Archana - Recitation of the deity's names and offering prayers</li>
+      <li>Deeparadhana - Offering of lamps to the deity</li>
+      <li>Prasadam Distribution - Distribution of sacred food as a blessing</li>
+      <li>Arati - Waving of lamps accompanied by devotional songs</li>
+    </ul>
+    <p>These rituals provide devotees with an opportunity to express their devotion and seek the divine blessings of Goddess Chamundi.</p>
+  </section>
+
+  <section id="events">
+    <h2>Festivals and Events</h2>
+    <p>Stay updated with upcoming festivals, events, and celebrations at different temples.</p>
+    <p>Experience the vibrant celebrations and festivities that take place at Indian temples throughout the year. From grand processions to cultural performances, these events offer a glimpse into the rich traditions and spiritual fervor that surround temple festivals.</p>
+    <p>Mark your calendars and join in the joyous celebrations as devotees come together to honor their deities and seek their divine blessings.</p>
+  </section>
+
+  <section id="donations">
+    <h2>Donations</h2>
+    <p>Support temple maintenance and development projects through online donations.</p>
+    <p>Click the button below to make a donation:</p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_donations">
+      <input type="hidden" name="business" value="your_paypal_email@example.com">
+      <input type="hidden" name="item_name" value="Temple Maintenance Donation">
+      <input type="hidden" name="currency_code" value="USD">
+      <input type="image" src="donate-button.png" name="submit" alt="Donate">
+      <img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+  </section>
+
+  <section id="volunteer">
+    <h2>Volunteer</h2>
+    <p>Find opportunities to volunteer your time and skills for temple-related activities.</p>
+    <p>Volunteering at temples is a wonderful way to contribute to the community and connect with the spiritual realm. Whether you have expertise in event planning, landscaping, or simply have a desire to serve, there are various volunteering opportunities available.</p>
+    <p>By becoming a temple volunteer, you not only support the maintenance and functioning of the temple but also experience the joy of service and spiritual growth.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Get in touch with us for any queries, feedback, or support requests.</p>
+    <p>If you have any questions or would like to get involved with our temple maintenance initiatives, please feel free to reach out to us. We value your feedback and suggestions as we continue our mission to preserve and promote the glory of Indian temples.</p>
+    <p>You can contact us via email, phone, or by filling out the contact form on our website.</p>
+  </section>
+
   <footer>
-    &copy; 2023 Temple Management. All rights reserved.
+    <p>&copy; 2023 Temple Maintenance Website. All rights reserved.</p>
   </footer>
+
+  <div class="watermark">ॐ</div>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
